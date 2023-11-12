@@ -1,0 +1,375 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  width: 100vw;
+  height: 150vh;
+  /* background: linear-gradient(to bottom ,rgba(0, 0, 0, 0.763) 0% 5% , rgb(91, 0, 91) 20% 100%); */
+  background: linear-gradient(to bottom ,rgba(0, 0, 0, 0.763) 0% 5% , #1e0346 20% 100%);
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  perspective: 2000px;
+  /* position: absolute; */
+  /* animation: day 2s ease-in-out ; */
+}
+@keyframes day {
+  0%{
+    background: linear-gradient(to bottom ,rgba(0, 0, 0, 0.763) 0% 5% , #1e0346 20% 100%);
+  }
+  100%{
+    /* background: linear-gradient(to bottom ,rgba(4, 30, 132, 0.763) 0% 5% , #047474 20% 100%); */
+    background: linear-gradient(180deg, #0079d9, #39a7ff,  #70c6ed 100%);
+  }
+}
+.floor1, .floor2, .floor3, .floor4, .floor5, .floor6, .roof{
+  width: 500px;
+  height: 500px;
+  background: #070b32;
+  /* background: rgb(196, 192, 192); */
+  transform-style: preserve-3d;
+  transform-origin: 50% 90%;
+  transform: rotateX(90deg) ;
+  position: absolute;
+  
+  /* animation-direction: alternate ; */
+  /* animation-fill-mode: forwards; */
+}
+
+.side{
+  width: 450px;
+  height: 100px;
+  /* background: #181b38; */
+  position: absolute;
+  display: flex;
+}
+.left{
+  transform-origin: 0% 0%;
+  transform: rotateZ(90deg) rotateX(90deg) translate3d(25px, 0px, 25px); 
+}
+.right{
+  right: 0px; 
+  transform-origin: 100% 0%;
+  transform: rotateZ(-90deg) rotateX(90deg) translate3d(-25px, 0px, 25px);
+}
+.front{
+  bottom: 0px;
+  transform-origin: 100% 100%;
+  transform: rotateX(-90deg) translate3d(25px, 0px, -25px); 
+}
+.back{
+  transform-origin: 0% 0%;
+  transform: rotateX(90deg) translate3d(25px, 0px, -25px);
+}
+.window{
+  width: calc(450px / 5);
+  height: 100px;
+  border: 2px solid black;
+  background-color: #181b38;
+  background: repeating-linear-gradient(#181b38 0px 3px, black 3px 4px);
+}
+.color{
+  background: rgba(255, 0, 0, 0.3);
+  /* animation: color 2s ease-in-out 0s 1 ; */
+}
+@keyframes color {
+  0%{
+    background: rgba(255, 0, 0, 0.3);
+  }
+  100%{
+    /* background: #39a7ff; */
+    background: white;
+    opacity: 0.5;
+  }
+}
+.sides{
+  width: 500px;
+  height: 25px;
+  background:#070b32;
+  position: absolute;
+}
+.front-side{
+  bottom: 0px;
+  transform-origin: 0% 100%;
+  transform: rotateX(-90deg);
+}
+.back-side{
+  transform-origin: 0% 0%;
+  transform: rotateX(90deg);
+}
+.left-side{
+  transform-origin: 0% 0%;
+  transform: rotateZ(90deg)  rotateX(90deg);
+  
+}
+.right-side{
+  transform-origin: 100% 0%;
+  transform: rotateZ(-90deg) rotateX(90deg); 
+}
+.floor2{
+  bottom: 100px;
+}
+.floor3{
+  bottom: 200px;
+}
+.floor4{
+  bottom: 300px;
+}
+.floor5{
+  bottom: 400px;
+}
+.floor6{
+  bottom: 500px;
+}
+.roof{
+  bottom: 600px;
+}
+.moon{
+  position: absolute;
+  top: 70px;
+  right: 100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: -25px 10px 0px 8px white;
+  z-index: -1;
+  /* animation: moon 3s ease-in-out 0s infinite; */
+}
+@keyframes moon {
+  0%{
+    top: 70px;
+    /* display: block; */
+    opacity: 1;
+  }
+  20%{
+    top: 10px;
+    /* display: block; */
+    opacity: 1;
+  }
+  90%{
+    top: 140vh;
+    /* display: block; */
+    opacity: 1;
+  }
+  100%{
+    top: 150vh;
+    /* display: none; */
+    opacity: 0;
+  }
+}
+.shadow{
+  position: absolute;
+  top: 70px;
+  right: 125px;
+  width: 130px;
+  height: 130px;
+  background: white;
+  box-shadow: 10px 10px 0px 0px ;
+  filter: blur(60px);
+  z-index: -3;
+  
+  /* animation: shadow 3s ease-in-out 0s infinite; */
+}
+@keyframes shadow {
+  0%{
+    top: 70px;
+  }
+  20%{
+    top: 10px;
+  }
+  100%{
+    top: 150vh;
+    display: none;
+  }
+}
+.Sun{
+  position: absolute;
+  /* top: 70px; */
+  right: 125px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  /* display: none; */
+  opacity: 0;
+  /* background: rgb(255, 208, 0); */
+  background: radial-gradient(circle at 45% 55%, #fff -13%, yellow 35%, orange 90%, #fff0 90%);
+  /* box-shadow: 2px 2px 30px 5px inset rgb(255, 132, 0), -2px -2px 30px 5px inset rgb(255, 123, 0); */
+  box-shadow: 0 0 3em 3em #ff9800, 0 0 5em 0 #ff9800 inset, 0 0 20px 5px #fdfdfd;
+  /* animation: sun 2s ease-in-out   ; */
+  /* z-index: -30; */
+}
+@keyframes sun {
+  0%{
+    top: 70px;
+    /* display: block; */
+    opacity: 1;
+  }
+  10%{
+    top: 50px;
+    /* display: block; */
+    opacity: 1;
+  }
+  90%{
+    opacity: 1;
+  }
+  100%{
+    top: 750px;
+    /* display: block; */
+    opacity: 0;
+    /* z-index: 3; */
+  }
+}
+.day{
+  position: absolute;
+  width: 65px;
+  height: 35px;
+  bottom: 350px;
+  right: 50px;
+  background: black;
+  border-radius: 20px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.Night-circle, .Sun-circle{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+.Night-circle{
+  left: -5px;
+  border: 1.5px solid white;
+}
+.Sun-circle{
+  right: -5px;
+  border: 1.5px solid rgb(255, 196, 0);
+}
+.Night, .Sun-click{
+  position: absolute;
+  width: 20px;
+height: 20px;
+border-radius: 50%;
+
+}
+.Night{
+left: 15px;
+box-shadow: -6px 0px 0 2px white;
+
+}
+.Sun-click{
+right: 6px;
+background: rgb(255, 230, 0)
+}
+.stars{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  /* background: green; */
+  z-index: -2;
+  /* animation: stars 2s ease-in-out 0s infinite ; */
+}
+@keyframes stars {
+  0%{
+top: 0px;
+  }
+  20%{
+    top: 30px;
+  }
+  100%{
+top: -200px;
+  }
+}
+.star{
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+}
+.star1{
+top: 15px;
+left: 30px;
+}
+.star2{
+top: 75px;
+left: 60px;
+}
+.star3{
+top: 100px;
+left: 90px;
+}
+.star4{
+top: 80px;
+left: 400px;
+}
+.star5{
+top: 60px;
+left:310px;
+}
+.star6{
+top: 45px;
+left: 890px;
+}
+.star7{
+top: 110px;
+left: 760px;
+}
+.star8{
+top: 38px;
+left: 1070px;
+}
+.star9{
+top: 100px;
+left: 580px;
+}
+.star10{
+top: 40px;
+left: 600px;
+}
+.star11{
+top: 140px;
+left: 360px;
+}
+.star12{
+top:25px;
+left: 200px;
+}
+.star13{
+top: 32px;
+left: 750px;
+}
+.star14{
+top: 180px;
+left: 170px;
+}
+.star15{
+top: 146px;
+left: 220px;
+}
+.star16{
+top: 150px;
+left: 860px;
+}
+.star17{
+top: 170px;
+left: 920px;
+}
+.star18{
+top:85px;
+left: 1100px;
+}
+.star19{
+top: 70px;
+left: 470px;
+}
+.star20{
+top: 90px;
+left: 840px;
+}
